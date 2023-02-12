@@ -50,6 +50,7 @@ router.get('/events', (req, res, next) => {
 // Will not require token
 router.get('/events/:id', (req, res, next) => {
 	// req.params.id will be set based on the `:id` in the route
+    console.log('show event req params', req.params)
 	Event.findById(req.params.id)
         .populate('owner')
 		.then(handle404)
